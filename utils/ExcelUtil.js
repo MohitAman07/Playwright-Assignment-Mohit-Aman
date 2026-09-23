@@ -1,3 +1,6 @@
+import XLSX from 'xlsx';
+import path from 'path';
+
 const XLSX = require('xlsx');
 
 class ExcelUtil {
