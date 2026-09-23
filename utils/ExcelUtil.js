@@ -2,9 +2,8 @@ const XLSX = require('xlsx');
 
 class ExcelUtil {
 
-    constructor(filePath) 
-    {
-        this.filePath="C:/Users/MohitAman/Desktop/playwright-banking-assignment/testdata/TestData.xlsx";  //use ur file path for testdata
+     constructor() {
+        this.filePath = path.join(process.cwd(),'testdata','TestData.xlsx');
     }
 
     getTestData(sheetName,testCase) 
