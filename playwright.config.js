@@ -1,19 +1,18 @@
 import { defineConfig, devices } from '@playwright/test';
-import { trace } from 'console'
 
 export default defineConfig({
     testDir: './tests',
-    // retries:1,                 // Retry failed test once
-    timeout:30*1000,          // Global test timeout
+    retries: 1,
+    timeout: 30 * 1000,
     expect: {
-        timeout:40*1000       // Global assertion timeout
+        timeout: 40 * 1000
     },
-
     reporter: 'html',
     use: {
-        baseURL:'https://www.way2automation.com/angularjs-protractor/banking/#/login',
-        headless:false,
-        actionTimeout: 10 * 1000,    // Global action timeout
+        baseURL: 'https://www.way2automation.com/angularjs-protractor/banking/#/login',
+        // Headed locally, headless in GitHub Actions
+        headless: !!process.env.CI,
+        actionTimeout: 10 * 1000,
         screenshot: 'on',
         video: 'on',
         trace: 'on-first-retry'
@@ -28,4 +27,3 @@ export default defineConfig({
         }
     ]
 });
-
